@@ -213,7 +213,7 @@ table.table td a {
   width: 100%;
 }
 
-* {
+.rotate {
   animation: rotation 2s infinite linear;
 }
 
