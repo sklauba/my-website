@@ -1,0 +1,32 @@
+body {
+    font-family: verdana;
+    font-size: 20px;
+    background-color: rgb(114, 114, 114);
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: rgb(192, 64, 64);
+    font-size: 80px;
+}
+.image {
+    margin: auto;
+    margin-top: 3px;
+    margin-left: 50px;
+    width: auto;
+    max-width: 90px;
+    min-width: 10px;
+    float: left;
+}
+.input-area {
+    border: 3px solid rgb(56, 56, 56);
+}
+.data-area {
+    border: 3px solid rgb(102, 102, 102);
+    text-align: left;
+    margin: auto;
+    padding: 30px;
+}
