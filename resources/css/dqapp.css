@@ -13,6 +13,10 @@ h2 {
   float: left;
 }
 
+.home-button {
+  width: 100%;
+}
+
 .tenor-gif-embed {
   margin: 0 auto;
   width: auto;
@@ -207,4 +211,17 @@ table.table td a {
   background-color: #fcfcfc;
   overflow-x: scroll;
   width: 100%;
+}
+
+* {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
