@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="resources/css/qrapp.CSS" />
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>QR Code Generator</title>
+     </head>
+<body>
+    <div class="header">
+        <img src="https://c.tenor.com/XDAe8PDHSIMAAAAd/downsign-qr-code.gif" alt="QR Code Gif" class="image">
+        <h1 class="title">QR Code Generator</h1>
+    </div>
+    <div class="input-area">
+        <form id="inputform" class="data-area">
+            <div>
+                <label for="qrdata">QR Data:</label>
+                <textarea id="qrdata" class="form-control" rows="2" placeholder="QR code data, usually in the form of a web link..."></textarea>
+            </div>
+            <div>
+                <label for="ImageSize">QR Image Size:</label>
+            </div>
+            <div class="size-area">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="small" autocomplete="off" value="100"> Small
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="medium" autocomplete="off" value="250"> Medium
+                        </label>
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="large" autocomplete="off" value="500" checked> Large
+                        </label>
+                    </div>
+                    <label>
+                    <button type="button" id="submitdata" class="btn btn-success" onclick="submitData()">Submit</button>
+                    </label>
+            </div>
+        </form>
+    </div>
+
+    <div">
+        <h2>Result:</h2>
+        <form id="resultform">
+            <div class="output-image" style="text-align: left;">
+                <img id="qrcode" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Hello%20world&choe=UTF-8">
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="resources/js/qrcodegeneratorapp.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
