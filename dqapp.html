@@ -155,6 +155,14 @@
             <form id="resultform" class="pure-form pure-form-stacked" name="form" onsubmit="return false">
                 <table class="table table-borderless" border="0" cellpadding="2">
                     <tr>
+                        <td scope="row" align="left-side">
+                            <div class="input-group">
+                                <span class="input-group-text">Copy All DDL's</span>
+                                <textarea readonly id="allddl" class="form-control" name="allddl"></textarea>
+                                <button class="btn btn-outline-secondary" type="button" onclick="copyResults(8)">Copy</button>
+                            </div>
+                        </td>
+                    </tr> 
                     <tr>
                         <td scope="row" align="left-side">
                             <div class="input-group">
@@ -163,7 +171,8 @@
                                 <button class="btn btn-outline-secondary" type="button" onclick="copyResults(7)">Copy</button>
                             </div>
                         </td>
-                    </tr>                        
+                    </tr> 
+                    <tr>                       
                     <td scope="row" align="left-side">
                             <div class="input-group">
                                 <span class="input-group-text">Stage Table DDL</span>

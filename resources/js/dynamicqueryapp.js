@@ -60,7 +60,7 @@ function submitSelection() {
         var viewDDL = generateView(gFilterView, gFieldMap, gKeyMap, gViewDb, gSrcdb, gSrctbl);
         setElementValueById('viewddl', viewDDL);
         setElementValueById('stgtblddl', generateStgDDL(gSrcdb, gSrctbl, gFieldMap));
-        setElementValueById('ldtblddl', generateLdDDL(gTgtdb, gSrctbl, gFieldMap));
+        setElementValueById('ldtblddl', generateLdDDL(gTgtdb, gLoadTbl, gFieldMap));
         var upsert = generateUpsert(fieldMap, gKeyMap, gSrcdb, gTgtdb, gSrctbl, gTgttbl, gViewName);
         setElementValueById('upsertsql', upsert);
         var update = generateUpdate(fieldMap, gKeyMap, gSrcdb, gTgtdb, gSrctbl, gTgttbl, gViewName);
@@ -140,11 +140,21 @@ function copyResults(valueIn) {
         case 7:
             copyText = document.getElementById("ldtblddl");
             break;
+        case 8:
+            //copyText = document.getElementById("ldtblddl");
+            copyText = document.getElementById("ldtblddl").value + "\n\n" + document.getElementById("stgtblddl").value + "\n\n" + document.getElementById("viewddl").value;
+            break;
     }
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-    /* Copy the text inside the text field */
-    navigator.clipboard.writeText(copyText.value);
+    if (valueIn != 8) {
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value); 
+    }
+    else {
+        navigator.clipboard.writeText(copyText);
+    }
+
 }
 
 
@@ -995,7 +1005,7 @@ ${fields}) STORED AS PARQUET;`;
     return template;
 }
 function getLdDDLTemplate(tgtdb, srctbl, fields) {
-    var template =`CREATE TABLE ${tgtdb}.${srctbl}_load (
+    var template =`CREATE TABLE ${tgtdb}.${srctbl} (
 ${fields}) STORED AS PARQUET;`;
     return template;
 }
