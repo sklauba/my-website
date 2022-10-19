@@ -60,6 +60,7 @@ function submitSelection() {
         var viewDDL = generateView(gFilterView, gFieldMap, gKeyMap, gViewDb, gSrcdb, gSrctbl);
         setElementValueById('viewddl', viewDDL);
         setElementValueById('stgtblddl', generateStgDDL(gSrcdb, gSrctbl, gFieldMap));
+        setElementValueById('ldtblddl', generateLdDDL(gTgtdb, gSrctbl, gFieldMap));
         var upsert = generateUpsert(fieldMap, gKeyMap, gSrcdb, gTgtdb, gSrctbl, gTgttbl, gViewName);
         setElementValueById('upsertsql', upsert);
         var update = generateUpdate(fieldMap, gKeyMap, gSrcdb, gTgtdb, gSrctbl, gTgttbl, gViewName);
@@ -135,6 +136,9 @@ function copyResults(valueIn) {
             break;
         case 6:
             copyText = document.getElementById("deletesql");
+            break;
+        case 7:
+            copyText = document.getElementById("ldtblddl");
             break;
     }
     copyText.select();
@@ -978,8 +982,20 @@ function generateStgDDL(srcdb, srctbl, fieldMap) {
     }
     return getStgDDLTemplate(srcdb, srctbl, fields.join(',\n'));
 }
+function generateLdDDL(tgtdb, srctbl, fieldMap) {
+    var fields = []
+    for (let [field, type] of fieldMap.entries()) {
+        fields.push(`${field} ${type}`);
+    }
+    return getLdDDLTemplate(tgtdb, srctbl, fields.join(',\n'));
+}
 function getStgDDLTemplate(srcdb, srctbl, fields) {
     var template =`CREATE TABLE ${srcdb}.${srctbl} (
+${fields}) STORED AS PARQUET;`;
+    return template;
+}
+function getLdDDLTemplate(tgtdb, srctbl, fields) {
+    var template =`CREATE TABLE ${tgtdb}.${srctbl}_load (
 ${fields}) STORED AS PARQUET;`;
     return template;
 }
