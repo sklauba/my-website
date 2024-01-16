@@ -12,7 +12,7 @@ function submitData() {
         alert("Please enter something into the QR Data field first");
         return;
     } else {
-        document.getElementById("qrcode").src = "https://chart.googleapis.com/chart?chs=" + selectedSize + "x" + selectedSize + "&cht=qr&chl=" + data + "&choe=UTF-8"
+        document.getElementById("qrcode").src = "https://qrcode.tec-it.com/API/QRCode?size=" + selectedSize + "&data=" + data + "&codepage=UTF8"
     }
 }
 
