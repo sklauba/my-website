@@ -23,7 +23,6 @@ function checkForm() {
     }
     return true;
 }
-
 function clearInput() {
     document.getElementById("qrdata").value = "";
 }
